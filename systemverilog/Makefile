@@ -2,11 +2,11 @@
 
 all: run
 
-obj_dir/Vtb: dut.sv tb.sv
-	verilator --binary --timing --trace-vcd --top-module tb $^
+build/Vtb: dut.sv tb.sv
+	verilator --binary --timing --trace-vcd --top-module tb --Mdir build $^
 
-run: obj_dir/Vtb
+run: build/Vtb
 	./$<
 
 clean:
-	rm -rf obj_dir wave.vcd
+	rm -rf build

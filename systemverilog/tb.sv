@@ -15,7 +15,7 @@ module tb;
     always #5 clk = ~clk;
 
     initial begin
-        $dumpfile("wave.vcd");
+        $dumpfile("./build/wave.vcd");
         $dumpvars(0, tb);
 
         @(negedge clk);
