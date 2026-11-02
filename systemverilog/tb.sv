@@ -4,11 +4,20 @@ module tb;
     logic [7:0] data = 0;
     wire [7:0] result;
 
-    dut dut_i (.*);
+    dut dut_i (.*); // 同名端口连接
+    // dut dut_i (
+    //     .clk(clk),
+    //     .valid(valid),
+    //     .data(data),
+    //     .result(result)
+    // );
 
     always #5 clk = ~clk;
 
     initial begin
+        $dumpfile("wave.vcd");
+        $dumpvars(0, tb);
+
         @(negedge clk);
         data = 8'd41;
         valid = 1;
