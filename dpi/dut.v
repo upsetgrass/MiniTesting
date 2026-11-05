@@ -2,11 +2,10 @@
 module dut (
     input  wire [31:0] data1,
     input  wire        valid1,
-    output wire [31:0] data2,
-    output wire        valid2
+    output wire [31:0] data2
 );
     dpi_bridge bridge (
         .data1(data1), .valid1(valid1),
-        .data2(data2), .valid2(valid2)
+        .data2(data2)
     );
 endmodule
